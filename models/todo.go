@@ -54,3 +54,78 @@ func (t *Todo) SetTimestamps() {
 	}
 	t.UpdatedAt = now
 }
+
+// TodoStorage represents the storage structure for file-based persistence
+type TodoStorage struct {
+	Todos  []Todo `json:"todos"`
+	NextID int    `json:"next_id"`
+}
+
+// NewTodoStorage creates a new TodoStorage instance with initial values
+func NewTodoStorage() *TodoStorage {
+	return &TodoStorage{
+		Todos:  make([]Todo, 0),
+		NextID: 1,
+	}
+}
+
+// GenerateNextID returns the next available ID and increments the counter
+func (ts *TodoStorage) GenerateNextID() int {
+	id := ts.NextID
+	ts.NextID++
+	return id
+}
+
+// AddTodo adds a new todo to the storage and assigns it an ID
+func (ts *TodoStorage) AddTodo(todo Todo) Todo {
+	todo.ID = ts.GenerateNextID()
+	todo.SetTimestamps()
+	ts.Todos = append(ts.Todos, todo)
+	return todo
+}
+
+// FindTodoByID finds a todo by its ID and returns it with its index
+func (ts *TodoStorage) FindTodoByID(id int) (*Todo, int, error) {
+	for i, todo := range ts.Todos {
+		if todo.ID == id {
+			return &ts.Todos[i], i, nil
+		}
+	}
+	return nil, -1, errors.New("todo not found")
+}
+
+// UpdateTodo updates an existing todo in the storage
+func (ts *TodoStorage) UpdateTodo(id int, updatedTodo Todo) (*Todo, error) {
+	todo, index, err := ts.FindTodoByID(id)
+	if err != nil {
+		return nil, err
+	}
+	
+	// Preserve original creation time and ID
+	updatedTodo.ID = todo.ID
+	updatedTodo.CreatedAt = todo.CreatedAt
+	updatedTodo.UpdatedAt = time.Now()
+	
+	ts.Todos[index] = updatedTodo
+	return &ts.Todos[index], nil
+}
+
+// DeleteTodo removes a todo from the storage by ID
+func (ts *TodoStorage) DeleteTodo(id int) error {
+	_, index, err := ts.FindTodoByID(id)
+	if err != nil {
+		return err
+	}
+	
+	// Remove todo from slice
+	ts.Todos = append(ts.Todos[:index], ts.Todos[index+1:]...)
+	return nil
+}
+
+// GetAllTodos returns a copy of all todos in the storage
+func (ts *TodoStorage) GetAllTodos() []Todo {
+	// Return a copy to prevent external modification
+	todos := make([]Todo, len(ts.Todos))
+	copy(todos, ts.Todos)
+	return todos
+}

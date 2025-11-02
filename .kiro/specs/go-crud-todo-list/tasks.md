@@ -13,7 +13,7 @@
   - Create helper functions for timestamp management
   - _Requirements: 1.3, 4.4_
 
-- [ ] 2.2 Create storage data structures
+- [x] 2.2 Create storage data structures
   - Define TodoStorage struct for file-based persistence
   - Implement data structure for managing next ID generation
   - Write JSON marshaling/unmarshaling methods
