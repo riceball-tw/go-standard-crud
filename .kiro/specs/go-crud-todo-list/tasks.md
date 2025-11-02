@@ -1,13 +1,13 @@
 # Implementation Plan
 
-- [-] 1. Set up project structure and core models
+- [x] 1. Set up project structure and core models
   - Create Go module with proper directory structure
   - Define Todo struct with JSON tags and validation
   - Create basic project files (main.go, go.mod)
   - _Requirements: 6.1, 6.2_
 
-- [ ] 2. Implement data models and validation
-- [ ] 2.1 Create Todo model with validation functions
+- [x] 2. Implement data models and validation
+- [x] 2.1 Create Todo model with validation functions
   - Write Todo struct with all required fields and JSON tags
   - Implement validation functions for title length, description limits
   - Create helper functions for timestamp management
