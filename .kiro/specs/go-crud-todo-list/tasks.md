@@ -107,15 +107,15 @@
   - Test concurrent request handling
   - _Requirements: All HTTP-related requirements_
 
-- [ ] 6. Implement main application and server setup
-- [ ] 6.1 Create main function and server initialization
+- [x] 6. Implement main application and server setup
+- [x] 6.1 Create main function and server initialization
   - Write main.go with dependency injection setup
   - Initialize repository, service, and handler layers
   - Configure HTTP server with proper timeouts and settings
   - Add graceful shutdown handling
   - _Requirements: 6.1, 6.2_
 
-- [ ] 6.2 Add application configuration and startup
+- [x] 6.2 Add application configuration and startup
   - Implement configuration for server port and data file path
   - Add startup logging and error handling
   - Ensure data file initialization on first run
