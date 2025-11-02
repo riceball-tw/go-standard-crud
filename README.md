@@ -1,6 +1,6 @@
 # Go CRUD Todo List API
 
-A simple REST API for managing todos built with Go. This application provides full CRUD (Create, Read, Update, Delete) operations for todo items with file-based persistence.
+> A simple REST API for managing todos built with Go with file-based persistence.
 
 ## Features
 
@@ -311,20 +311,21 @@ The API returns appropriate HTTP status codes:
 
 ```
 .
-├── main.go                 # Application entry point and server setup
+├── main.go                      # Application entry point and server setup
+├── go.mod                       # Go module definition
 ├── models/
-│   ├── todo.go            # Todo model and validation
-│   └── storage.go         # In-memory storage management
+│   └── todo.go                  # Todo model, validation, and storage management
 ├── repository/
-│   └── todo_repository.go # Data persistence layer
+│   ├── todo_repository.go       # Data persistence layer
+│   └── todo_repository_test.go  # Repository unit tests
 ├── service/
-│   └── todo_service.go    # Business logic layer
+│   ├── todo_service.go          # Business logic layer
+│   └── todo_service_test.go     # Service unit tests
 ├── handler/
-│   └── todo_handler.go    # HTTP request handling
-├── tests/
-│   └── *_test.go          # Unit tests
-├── todos.json             # Data file (created at runtime)
-└── README.md              # This file
+│   ├── todo_handler.go          # HTTP request handling
+│   └── todo_handler_test.go     # Handler unit tests
+├── todos.json                   # Data file (created at runtime)
+└── README.md                    # This file
 ```
 
 ## Contributing
