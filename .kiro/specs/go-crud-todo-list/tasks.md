@@ -19,14 +19,14 @@
   - Write JSON marshaling/unmarshaling methods
   - _Requirements: 7.1, 7.4_
 
-- [ ] 3. Implement repository layer for data persistence
-- [ ] 3.1 Create TodoRepository interface and implementation
+- [x] 3. Implement repository layer for data persistence
+- [x] 3.1 Create TodoRepository interface and implementation
   - Define repository interface with CRUD methods
   - Implement file-based repository with mutex for thread safety
   - Write methods for loading and saving data to JSON file
   - _Requirements: 7.1, 7.2, 7.3_
 
-- [ ] 3.2 Implement CRUD operations in repository
+- [x] 3.2 Implement CRUD operations in repository
   - Code GetAll method to return all todos
   - Implement GetByID method with error handling for not found
   - Write Create method with ID generation and timestamp setting
@@ -34,7 +34,7 @@
   - Code Delete method with proper error handling
   - _Requirements: 1.1, 2.1, 3.1, 4.1, 5.1_
 
-- [ ] 3.3 Add repository unit tests
+- [x] 3.3 Add repository unit tests
   - Write tests for all CRUD operations using temporary files
   - Test file persistence and data loading scenarios
   - Verify thread safety with concurrent access tests
