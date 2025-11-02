@@ -64,43 +64,43 @@
   - Test edge cases and boundary conditions
   - _Requirements: 1.2, 4.3_
 
-- [ ] 5. Implement HTTP handler layer
-- [ ] 5.1 Create HTTP handler struct and routing
+- [x] 5. Implement HTTP handler layer
+- [x] 5.1 Create HTTP handler struct and routing
   - Define TodoHandler struct with service dependency
   - Implement HTTP router using standard library ServeMux
   - Set up route handlers for all CRUD endpoints
   - Add middleware for JSON content type handling
   - _Requirements: 6.3_
 
-- [ ] 5.2 Implement GET endpoints
+- [x] 5.2 Implement GET endpoints
   - Code GET /todos handler to return all todos as JSON
   - Implement GET /todos/{id} handler with ID parsing
   - Add proper HTTP status codes and error responses
   - Handle JSON marshaling and error cases
   - _Requirements: 2.1, 2.2, 3.1, 3.2, 3.3_
 
-- [ ] 5.3 Implement POST endpoint for creating todos
+- [x] 5.3 Implement POST endpoint for creating todos
   - Code POST /todos handler with JSON request parsing
   - Add input validation and error response handling
   - Implement proper HTTP status codes (201 for creation)
   - Handle JSON unmarshaling errors and validation failures
   - _Requirements: 1.1, 1.2, 1.3_
 
-- [ ] 5.4 Implement PUT endpoint for updating todos
+- [x] 5.4 Implement PUT endpoint for updating todos
   - Code PUT /todos/{id} handler with ID parsing and JSON body
   - Add validation for update data and existence checking
   - Implement proper HTTP status codes and error responses
   - Handle partial updates and timestamp management
   - _Requirements: 4.1, 4.2, 4.3, 4.4_
 
-- [ ] 5.5 Implement DELETE endpoint
+- [x] 5.5 Implement DELETE endpoint
   - Code DELETE /todos/{id} handler with ID parsing
   - Add existence verification and proper error handling
   - Implement 204 No Content response for successful deletion
   - Handle not found scenarios with 404 responses
   - _Requirements: 5.1, 5.2_
 
-- [ ] 5.6 Add HTTP handler unit tests
+- [x] 5.6 Add HTTP handler unit tests
   - Write tests for all HTTP endpoints using httptest package
   - Test request/response JSON handling and status codes
   - Verify error scenarios and edge cases
